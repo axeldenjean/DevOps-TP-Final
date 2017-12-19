@@ -1,0 +1,12 @@
+---
+
+- name: Install MongoDB cluster, Install Docker, Create Swarm
+  hosts: mongo:children
+  remote_user: ubuntu
+  become: true
+  tasks:
+
+    - name: install MongoDB
+      apt:
+        name: mongodb
+        update_cache: yes
