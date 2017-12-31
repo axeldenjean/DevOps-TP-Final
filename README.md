@@ -7,9 +7,10 @@ Le groupe est composé de :
   - Axel Denjean
   - Louis Cuvelier
   
-### Scripts :
+### Scripts
 
-### Partie A
+#### Partie A
 - Lancer la génération d'une image : docker build -t homecolis-api:latest .
 - Lancer le docker compose : docker-compose up
 
+#### Partie B
