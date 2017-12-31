@@ -1,4 +1,4 @@
-DevOps TP Final 2017
+﻿DevOps TP Final 2017
 ====================
 
 ### Groupe
@@ -14,3 +14,7 @@ Le groupe est composé de :
 - Lancer le docker compose : docker-compose up
 
 #### Partie B
+- Créer le fichier inventory.ini
+- Lister les machines et créer les groupes
+- Créer le fichier playbook-provisionning.yml
+- Créer les fichiers proxy.yml et hello.yml

@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+  hello:
+    image: dockercloud/hello-world
+    deploy:
+      replicas: 4
+      update_config:
+        parallelism: 1
+        delay: 4s
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+        reservations:
+          cpus: '0.001'
+          memory: 20M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        preferences:
+          - spread: node.labels.location
+    environment:
+       - SERVICE_PORTS=80
+       - VIRTUAL_HOST=http://hello.homecolis.adlcmp
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true

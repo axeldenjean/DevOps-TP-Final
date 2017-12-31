@@ -1,16 +1,35 @@
-version: "3"
+version: "3.3"
 
 services:
 
   proxy:
     image: dockercloud/haproxy
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: "0.05"
+          memory: 64M
+        reservations:
+          cpus: "0.01"
+          memory: 20M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        constraints:
+          - "node.labels.loadbalanced == true"
     ports:
-      - 80:80
-      - 443:443
+      - target: 80
+        published: 8080
+        protocol: tcp
+        mode: host
     networks:
       - proxy
     environment:
       - LISTENER_ADDRESS=swarm-listener
       - MODE=swarm
-    deploy:
-      replicas: 
+networks:
+  proxy:
+    external: true
