@@ -10,8 +10,6 @@ Le groupe est composé de :
 ### Scripts :
 
 ### Partie A
-- Lancer la génération d'une image :
-	docker build -t homecolis-api:latest .
--lancer le docker compose :
-	docker-compose up
+- Lancer la génération d'une image : docker build -t homecolis-api:latest .
+- Lancer le docker compose : docker-compose up
 
